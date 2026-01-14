@@ -75,37 +75,37 @@ HR-RAG-BOT/
 ### Backend Setup
 
 1. Clone repo
-   ```bash
-   git clone <your-repo-url>
-   ```
+```bash
+git clone <your-repo-url>
+```
 2. Go to the Backend
-   ```bash
-   cd HR-RAG-BOT/SERVER
-   ```
+```bash
+cd HR-RAG-BOT/SERVER
+```
 3. Create and Activate venv
-   ```bash
-   python -m venv venv
-   source venv/bin/activate    # Linux/Mac
-   venv\Scripts\activate       # Windows
-   ```
+```bash
+python -m venv venv
+source venv/bin/activate    # Linux/Mac
+venv\Scripts\activate       # Windows
+```
 4. Install dependencies
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+pip install -r requirements.txt
+```
 5. Create `.env` file in `SERVER/`
-   ```bash
-   OPENAI_API_KEY=sk-...
-   PINECONE_API_KEY=...
-   PINECONE_INDEX_NAME=hr-system-index
-   SENDER_EMAIL=your@gmail.com
-   SENDER_PASSWORD=your-app-password
-   SECRET_KEY=your-secret-key-here
-   MONGODB_URI=mongodb://localhost:27017/hr_system   # or Atlas URI
-   ```
+```bash
+OPENAI_API_KEY=sk-...
+PINECONE_API_KEY=...
+PINECONE_INDEX_NAME=hr-system-index
+SENDER_EMAIL=your@gmail.com
+SENDER_PASSWORD=your-app-password
+SECRET_KEY=your-secret-key-here
+MONGODB_URI=mongodb://localhost:27017/hr_system   # or Atlas URI
+```
 6. Run backend
-   ```bash
-   uvicorn main:app --reload --port 8000
-   ```
+```bash
+uvicorn main:app --reload --port 8000
+```
 ### Frontend Setup
 1. Go to CLIENT folder
 ```bash
