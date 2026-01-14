@@ -1,0 +1,42 @@
+services:
+  backend:
+    build:
+      context: ./SERVER
+      dockerfile: Dockerfile
+    environment:
+      - MONGO_URI=mongodb://mongo:27017
+      - DB_NAME=hr_chatbot
+    image: ahm3dkhanzada/hr-chatbot-backend:latest
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./backend/upload_docs:/app/upload_docs
+    depends_on:
+      - mongo
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./CLIENT
+      dockerfile: Dockerfile
+    image: ahm3dkhanzada/hr-chatbot-frontend:latest
+    ports:
+      - "8501:8501"
+    environment:
+      - API_BASE=http://backend:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongo-data:
